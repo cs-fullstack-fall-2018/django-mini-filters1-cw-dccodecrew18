@@ -10,14 +10,18 @@
 
 <h1>Stuff I need To Do!</h1>
 {% for todo in todos %}
-<p>
-<div class='todo'>
-    <b>{{todo.name}}</b>
-</div>
-<div class='due_date'>
-    <b>Due:</b> {{ todo.due_date | get_due_date_string }}
-</div>
-</p>
+    <p>
+
+    <div style='border: 2px solid {{ todo.due_date|get_due_date_color }};'>
+        <div class='todo'>
+            <b>{{ todo.name }}</b>
+        </div>
+        <div class='due_date'>
+            <b>Due:</b> {{ todo.due_date | get_due_date_string }} {#  | seperates filter via pipeline #}
+        </div>
+
+    </div>
+    </p>
 {% endfor %}
 </body>
 </html>
